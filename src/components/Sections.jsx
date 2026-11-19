@@ -111,6 +111,9 @@ function PathBullet() {
   )
 }
 
+// Fußnote zu "unbegrenzt" (faire Nutzung laut Preisliste im Haupt-Repo).
+const FAIR_USE = '*Faire Nutzung: max. 20 Bewerbungen pro Tag, zum Schutz vor Missbrauch.'
+
 export function Offer() {
   return (
     <section className="section offer-section">
@@ -126,14 +129,19 @@ export function Offer() {
             <li>
               <PathBullet />
               <span className="offer__price">
-                <s className="offer__price-old" aria-label="statt 4,99 €">
-                  4,99 €
+                <s className="offer__price-old" aria-label="statt 9,99 €">
+                  9,99 €
                 </s>
                 <strong className="offer__price-new">2,99 €</strong>
-                <span className="offer__price-note">im Monat, dauerhaft</span>
+                <span className="offer__price-note">im Monat für unbegrenzte Bewerbungen*</span>
               </span>
             </li>
           </ul>
+          <p className="offer__footnote">
+            Der Gründerpreis gilt dauerhaft, solange dein Abo ununterbrochen läuft. Jederzeit kündbar.
+            <br />
+            {FAIR_USE}
+          </p>
           <div className="offer__form" id="offer-form">
             <EarlyAccessForm
               id="email-angebot"
@@ -152,7 +160,7 @@ export function Offer() {
 const FAQ = [
   {
     q: 'Was kostet VEGUR?',
-    a: 'Du startest kostenlos mit 2 Bewerbungen. Danach 4,99 € im Monat für 15 Bewerbungen oder 12,99 € einmalig für 3 Monate unbegrenzt. Die ersten 100 auf der Warteliste bekommen 5 Bewerbungen gratis und zahlen dauerhaft 2,99 € statt 4,99 € im Monat.',
+    a: `Du startest kostenlos mit 2 Bewerbungen. Danach: 3er-Paket für 4,99 € einmalig, Monatlich 9,99 € mit unbegrenzten Bewerbungen* (jederzeit kündbar) oder die Bewerbungsphase für 24,99 € einmalig: 3 Monate unbegrenzt*. Die ersten 100 auf der Warteliste bekommen 5 Bewerbungen gratis und zahlen 2,99 € statt 9,99 € im Monat, solange ihr Abo ununterbrochen läuft. ${FAIR_USE}`,
   },
   {
     q: 'Wann geht es los?',
