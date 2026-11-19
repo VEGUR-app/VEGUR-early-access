@@ -1,5 +1,5 @@
 import { useRef, useState } from 'react'
-import { DATENSCHUTZ_URL, FORM_ENDPOINT, markSignedUp, QUELLE, useSignedUp } from '../lib/signup.js'
+import { DATENSCHUTZ_URL, FORM_ENDPOINT, markSignedUp, QUELLE, SRC, useSignedUp } from '../lib/signup.js'
 
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
 
@@ -19,7 +19,7 @@ function CheckIcon() {
   )
 }
 
-// E-Mail-Eintragung über Formspree (Feld "email", dazu "quelle").
+// E-Mail-Eintragung über Formspree (Feld "email", dazu "quelle" und "src").
 // Nach einer erfolgreichen Eintragung zeigen alle Formulare den Erfolg.
 export default function EarlyAccessForm({ id, note }) {
   const signedUp = useSignedUp()
@@ -48,7 +48,7 @@ export default function EarlyAccessForm({ id, note }) {
       const res = await fetch(FORM_ENDPOINT, {
         method: 'POST',
         headers: { Accept: 'application/json', 'Content-Type': 'application/json' },
-        body: JSON.stringify({ email: value, quelle: QUELLE }),
+        body: JSON.stringify({ email: value, quelle: QUELLE, src: SRC }),
       })
       if (res.ok) {
         markSignedUp()
@@ -82,6 +82,7 @@ export default function EarlyAccessForm({ id, note }) {
     <div className="signup">
       <form className="signup__form" onSubmit={handleSubmit} noValidate>
         <input type="hidden" name="quelle" value={QUELLE} />
+        <input type="hidden" name="src" value={SRC} />
         <label htmlFor={id} className="sr-only">
           E-Mail-Adresse
         </label>

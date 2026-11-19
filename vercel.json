@@ -1,0 +1,7 @@
+{
+  "redirects": [
+    { "source": "/karte-a", "destination": "/?src=karte-a", "permanent": false },
+    { "source": "/karte-b", "destination": "/?src=karte-b", "permanent": false },
+    { "source": "/karte-c", "destination": "/?src=karte-c", "permanent": false }
+  ]
+}

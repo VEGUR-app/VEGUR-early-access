@@ -51,6 +51,16 @@ export const QUELLE = (() => {
   }
 })()
 
+// Karte, über die jemand kam (?src=karte-a, gesetzt durch die Weiterleitungen
+// /karte-a usw. in vercel.json), einmal beim Laden gelesen. Ohne Parameter leer.
+export const SRC = (() => {
+  try {
+    return new URLSearchParams(window.location.search).get('src')?.trim().slice(0, 60) ?? ''
+  } catch {
+    return ''
+  }
+})()
+
 export function prefersReducedMotion() {
   return typeof window !== 'undefined' && window.matchMedia?.('(prefers-reduced-motion: reduce)').matches
 }
